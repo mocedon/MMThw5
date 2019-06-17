@@ -5,14 +5,20 @@
 
 using namespace std;
 
-
 class polynom : public func {
  public:
- 
-  void printcoefs(ostream&)  const ;
-
+	 polynom(int n = 0, int* coefs = NULL);
+	 polynom(const polynom p);
+	 ~polynom();
+	 int operator[](const int&x) const;
+	 polynom& operator+(const polynom& p) const;
+	 polynom& operator-(const polynom& p) const;
+	 polynom& operator*(const polynom& p) const;
+	 polynom& Derivative() const;
+	 polynom& Integral() const;
+	 void printcoefs(ostream&) const;
+	 friend ostream& operator<<(ostream& os, const polynom& p);
   protected:
-
   int n_; //order of the polynom
   int* coefs_; //coefficients 
 };

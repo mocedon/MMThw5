@@ -115,6 +115,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="compfunc.h" />
+    <ClInclude Include="defs.h" />
+    <ClInclude Include="func.h" />
+    <ClInclude Include="mathxception.h" />
+    <ClInclude Include="polynom.h" />
+    <ClInclude Include="ratfunc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="compfunc.cpp" />
+    <ClCompile Include="func.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mathexception.cpp" />
+    <ClCompile Include="polynom.cpp" />
+    <ClCompile Include="ratfunc.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -6,7 +6,7 @@
 using namespace std;
 
 class polynom : public func {
- public:
+public:
 	 polynom(int n = 0, int* coefs = NULL);
 	 polynom(const polynom p);
 	 ~polynom();

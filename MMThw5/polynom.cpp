@@ -19,7 +19,7 @@ polynom::~polynom() {
 	delete[] coefs_;
 }
 
-int polynom::operator[](const int&x) const {
+int polynom::operator[](const int& x) const {
 	int sum = 0;
 	for (int i = 0; i <= n_; i++) {
 		int e = coefs_[i];
@@ -144,7 +144,7 @@ void polynom::printcoefs(ostream& os) const {
 	}
 }
 
-ostream& operator<<(ostream& os, const polynom& p) {
+void polynom::print(ostream& os) const {
 	polynom d = p.Derivative();
 	polynom i = p.Integral();
 	p.printcoefs(os);
@@ -153,5 +153,4 @@ ostream& operator<<(ostream& os, const polynom& p) {
 	os << endl << "Integral: ";
 	i.printcoefs(os);
 	os << "+Constant" << endl;
-	p.plot(os);
 }

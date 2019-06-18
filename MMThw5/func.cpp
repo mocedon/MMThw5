@@ -2,7 +2,7 @@
 
 func::func() : maxVal_(0), minVal_(1) {}
 
-func& func::operator<<(const int&x) {
+func& func::operator<<(const int& x) {
 	int y = f[x];
 	if (maxVal_ < minVal_)
 	{
@@ -18,6 +18,12 @@ func& func::operator<<(const int&x) {
 	}
 	fmap_[x] = y;
 	return *this;
+}
+
+ostream& operator<<(ostream& os, const func& f) {
+	f.print(os);
+	f.plot(os);
+	return os;
 }
 
 void func::plot(ostream& os) const {

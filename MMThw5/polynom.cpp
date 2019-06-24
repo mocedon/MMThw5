@@ -1,5 +1,8 @@
 #include "polynom.h"
 
+polynom::polynom() : n_(0), coefs_(NULL) {
+}
+
 polynom::polynom(int n, int* coefs) : n_(n), coefs_(new int[n + 1]) {
 	if (coefs == NULL) {
 	 	for (int i = 0; i <= n; i++) {
@@ -13,7 +16,12 @@ polynom::polynom(int n, int* coefs) : n_(n), coefs_(new int[n + 1]) {
 	}
 }
 
-polynom::polynom(const polynom p) : polynom(p.n_,p.coefs_) {}
+polynom::polynom(const polynom& p) : polynom(p.n_,p.coefs_) {}
+
+
+polynom::polynom(const int n) : n_(1), coefs_(new int) {
+	*coefs_ = n;
+}
 
 polynom::~polynom() {
 	delete[] coefs_;
@@ -29,6 +37,17 @@ int polynom::operator[](const int& x) const {
 		sum += e;
 	}
 	return sum;
+}
+
+polynom& polynom::operator=(const polynom& p) {
+	n_ = p.n_ ;
+	delete[] coefs_ ;
+	coefs_ = new int[n_+1]  ;
+	for (int i = 0; i <= n_; i++) {
+		coefs_[i] = p.coefs_[i] ;
+	}
+
+
 }
 
 polynom& polynom::operator+(const polynom& p) const {
@@ -103,7 +122,7 @@ polynom& polynom::Integral() const {
 		coefs[i] = coefs_[i - 1] / i;
 	}
 	polynom result(n, coefs);
-	delete[] coefs;
+	delete[] coefs_;
 	return result;
 }
 
@@ -145,12 +164,12 @@ void polynom::printcoefs(ostream& os) const {
 }
 
 void polynom::print(ostream& os) const {
-	polynom d = p.Derivative();
-	polynom i = p.Integral();
-	p.printcoefs(os);
-	os << endl << "Derivative: ";
+	polynom d = Derivative() ;
+	polynom i = Integral() ;
+	printcoefs(os) ;
+	os << endl << "Derivative: " ;
 	d.printcoefs(os);
-	os << endl << "Integral: ";
-	i.printcoefs(os);
-	os << "+Constant" << endl;
+	os << endl << "Integral: " ;
+	i.printcoefs(os) ;
+	os << "+Constant" << endl ;
 }

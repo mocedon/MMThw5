@@ -3,14 +3,18 @@
 
 #include "func.h"
 
-using namespace std;
+using std::vector ;
+
 
 class polynom : public func {
  public:
-	 polynom(int n = 0, int* coefs = NULL);
-	 polynom(const polynom p);
+	 polynom() ;
+	 polynom(int n , int* coefs);
+	 polynom(const polynom& p);
+	 polynom(const int n) ;
 	 ~polynom();
 	 int operator[](const int& x) const;
+	 polynom& operator=(const polynom& p) ;
 	 polynom& operator+(const polynom& p) const;
 	 polynom& operator-(const polynom& p) const;
 	 polynom& operator*(const polynom& p) const;

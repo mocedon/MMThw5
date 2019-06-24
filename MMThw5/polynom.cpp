@@ -16,7 +16,7 @@ polynom::polynom(int n, int* coefs) : n_(n), coefs_(new int[n + 1]) {
 	}
 }
 
-polynom::polynom(const polynom& p) : polynom(p.n_,p.coefs_) {}
+polynom::polynom(const polynom& p) : n_(p.n_), coefs_(p.coefs_) {}
 
 
 polynom::polynom(const int n) : n_(1), coefs_(new int) {

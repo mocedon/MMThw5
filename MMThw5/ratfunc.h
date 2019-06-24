@@ -21,8 +21,8 @@ public:
 	ratfunc& operator/(const ratfunc& b) const ;
 
 protected:
-	polynom N_;
-	polynom D_;
+	polynom N_ ;
+	polynom D_ ;
 	void print(ostream& os) const ;
 
 };

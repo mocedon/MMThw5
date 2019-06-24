@@ -1,4 +1,5 @@
 #include "ratfunc.h"
+#include "mathexception.h"
 
 ratfunc::ratfunc() : N_() , D_(1) {
 }
@@ -10,7 +11,9 @@ ratfunc::~ratfunc() {
 }
 
 int ratfunc::operator[](const int& x) const {
-	return (N_[x] / D_[x]) ;
+	int d = D_[x] ;
+	if (d == 1) throw mathexception("Divide by zero") ;
+	return (N_[x] / d) ;
 }
 
 ratfunc& ratfunc::Derivative() const {

@@ -8,6 +8,6 @@ mathexception::~mathexception() {
 	delete[] warning_;
 }
 
-const char* mathexception::what() const throw {
+const char* mathexception::what() const throw() {
 	return warning_;
 }

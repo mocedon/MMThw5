@@ -5,9 +5,10 @@
 #include <vector>
 #include <iostream>
 
-using std::map ;
-using std::vector ;
-using std::ostream ;
+using std::map;
+using std::vector;
+using std::ostream;
+using std::endl;
 
 class func {
 public:

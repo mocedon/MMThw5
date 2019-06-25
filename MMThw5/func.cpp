@@ -3,7 +3,7 @@
 func::func() : maxVal_(0), minVal_(1) {}
 
 func& func::operator<<(const int& x) {
-	int y = f[x];
+	int y = (*this)[x];
 	if (maxVal_ < minVal_)
 	{
 		maxVal_ = minVal_ = x;
@@ -88,7 +88,7 @@ void func::plot(ostream& os) const {
 						os << " " << *it_im - i;
 					else
 						os << "  " << *it_im - i;
-				cout << endl;
+				os << endl;
 				i++;
 
 			}
@@ -97,7 +97,7 @@ void func::plot(ostream& os) const {
 	}//for sortImage
 
 	//print x axis
-	cout << " ";
+	os << " ";
 	for (auto i = minVal_; i < maxVal_ + 1; i++) {
 		if (i < 0) os << " " << i;
 		else os << "  " << i;

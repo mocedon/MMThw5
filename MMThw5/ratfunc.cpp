@@ -74,5 +74,6 @@ void ratfunc::printRF(ostream& os) const {
 void ratfunc::print(ostream& os) const {
 	printRF(os);
 	ratfunc d = Derivative();
+	os << "Derivative: " ;
 	d.printRF(os);
 }

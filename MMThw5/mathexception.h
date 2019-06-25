@@ -9,6 +9,7 @@
 #include <string>
 
 using std::exception;
+using std::string;
 
 class mathexception : public exception {
 public:

@@ -33,6 +33,7 @@ ratfunc ratfunc::Derivative() const {
 ratfunc& ratfunc::operator=(const ratfunc& r) {
 	N_ = r.N_;
 	D_ = r.D_;
+	return *this;
 }
 
 ratfunc ratfunc::operator+(const ratfunc& r) const {

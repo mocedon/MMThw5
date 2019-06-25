@@ -34,12 +34,16 @@ int polynom::operator[](const int& x) const {
 }
 
 polynom& polynom::operator=(const polynom& p) {
+	if (this->coefs_ == p.coefs_) {
+		return *this;
+	}
 	n_ = p.n_;
 	delete[] coefs_;
 	coefs_ = new int[n_+1];
 	for (int i = 0; i <= n_; i++) {
 		coefs_[i] = p.coefs_[i];
 	}
+	return *this;
 }
 
 polynom polynom::operator+(const polynom& p) const {

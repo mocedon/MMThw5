@@ -6,7 +6,7 @@ ratfunc::ratfunc() : N_() , D_(1) {
 ratfunc::ratfunc(const polynom& p) : N_(p), D_(1) {
 }
 
-ratfunc::ratfunc(const polynom& n , const polynom& d) : N_(n) , D_(d) {
+ratfunc::ratfunc(const polynom& d , const polynom& n) : N_(n) , D_(d) {
 }
 
 ratfunc::ratfunc(const ratfunc& r) : N_(r.N_), D_(r.D_) {
@@ -18,7 +18,7 @@ ratfunc::~ratfunc() {
 int ratfunc::operator[](const int& x) const {
 	int d = D_[x];
 	int n = N_[x];
-	if (d == 0) throw mathexception("Divide by zero");
+	if (d == 0) throw mathexception("divide by zero");
 	return (n / d);
 }
 

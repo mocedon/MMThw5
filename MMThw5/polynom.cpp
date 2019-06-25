@@ -27,7 +27,7 @@ int polynom::operator[](const int& x) const {
 }
 
 polynom& polynom::operator=(const polynom& p) {
-	if (this->coefs_ == p.coefs_) {
+	if (coefs_ == p.coefs_) {
 		return *this;
 	}
 	n_ = p.n_;

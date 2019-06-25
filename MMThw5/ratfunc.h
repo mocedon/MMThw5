@@ -11,7 +11,7 @@ class ratfunc : public func {
 public:
 	ratfunc();
 	ratfunc(const polynom& p);
-	ratfunc(const polynom& n, const polynom& d);
+	ratfunc(const polynom& d, const polynom& n);
 	ratfunc(const ratfunc& r);
 	~ratfunc();
 	int operator[](const int& x) const;

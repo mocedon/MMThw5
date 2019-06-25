@@ -2,7 +2,6 @@
 #define _POLY_F
 
 #include "func.h"
-#include "ratfunc.h"
 
 using std::vector ;
 
@@ -19,7 +18,6 @@ class polynom : public func {
 	 polynom& operator+(const polynom& p) const;
 	 polynom& operator-(const polynom& p) const;
 	 polynom& operator*(const polynom& p) const;
-	 ratfunc& operator/(const polynom& p) const;
 	 polynom& Derivative() const;
 	 polynom& Integral() const;
 	 void printcoefs(ostream&) const;

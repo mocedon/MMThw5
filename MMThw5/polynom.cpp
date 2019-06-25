@@ -93,10 +93,6 @@ polynom& polynom::operator*(const polynom& p) const {
 	return result;
 }
 
-ratfunc& polynom::operator/(const polynom& p) const {
-	return ratfunc(*this, p);
-}
-
 polynom& polynom::Derivative() const {
 	int n = n_ - 1;
 	int* coefs = new int[n + 1];

@@ -8,10 +8,9 @@ using std::vector ;
 
 class polynom : public func {
  public:
-	 polynom() ;
 	 polynom(int n , int* coefs);
 	 polynom(const polynom& p);
-	 polynom(const int a0);
+	 polynom(const int a0 = 0);
 	 ~polynom();
 	 int operator[](const int& x) const;
 	 polynom& operator=(const polynom& p);

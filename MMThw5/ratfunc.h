@@ -3,6 +3,7 @@
 
 #include "func.h"
 #include "polynom.h"
+#include "mathexception.h"
 
 using namespace std ;
 
@@ -23,6 +24,7 @@ public:
 protected:
 	polynom N_;
 	polynom D_;
+	void printRF(ostream& os) const;
 	void print(ostream& os) const;
 };
 

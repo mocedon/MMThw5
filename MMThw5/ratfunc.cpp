@@ -1,5 +1,4 @@
 #include "ratfunc.h"
-#include "mathexception.h"
 
 ratfunc::ratfunc() : N_() , D_(1) {
 }
@@ -24,7 +23,7 @@ int ratfunc::operator[](const int& x) const {
 }
 
 ratfunc ratfunc::Derivative() const {
-	polynom Ntor = N_.Derivative() * D_ - N_ * D_.Derivative();
+	polynom Ntor = (N_.Derivative() * D_) - (N_ * D_.Derivative());
 	polynom Dtor = D_ * D_;
 	ratfunc result(Ntor, Dtor);
 	return result;
@@ -37,14 +36,14 @@ ratfunc& ratfunc::operator=(const ratfunc& r) {
 }
 
 ratfunc ratfunc::operator+(const ratfunc& r) const {
-	polynom Ntor = N_ * r.D_ + r.N_ * D_;
+	polynom Ntor = (N_ * r.D_) + (r.N_ * D_);
 	polynom Dtor = D_ * r.D_;
 	ratfunc result(Ntor, Dtor);
 	return result;
 }
 
 ratfunc ratfunc::operator-(const ratfunc& r) const {
-	polynom Ntor = N_ * r.D_ - r.N_ * D_;
+	polynom Ntor = (N_ * r.D_) - (r.N_ * D_);
 	polynom Dtor = D_ * r.D_;
 	ratfunc result(Ntor, Dtor);
 	return result;
@@ -64,16 +63,16 @@ ratfunc ratfunc::operator/(const ratfunc& r) const {
 	return result;
 }
 
-void ratfunc::print(ostream& os) const {
-	ratfunc d = Derivative();
+void ratfunc::printRF(ostream& os) const {
 	os << "(";
 	N_.printcoefs(os);
 	os << ")/(";
 	D_.printcoefs(os);
 	os << ")" << endl;
-	os << "(";
-	d.N_.printcoefs(os);
-	os << ")/(";
-	d.D_.printcoefs(os);
-	os << ")" << endl;
+}
+
+void ratfunc::print(ostream& os) const {
+	printRF(os);
+	ratfunc d = Derivative();
+	d.printRF(os);
 }

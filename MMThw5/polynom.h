@@ -2,6 +2,7 @@
 #define _POLY_F
 
 #include "func.h"
+#include "ratfunc.h"
 
 using std::vector ;
 
@@ -11,13 +12,14 @@ class polynom : public func {
 	 polynom() ;
 	 polynom(int n , int* coefs);
 	 polynom(const polynom& p);
-	 polynom(const int n) ;
+	 polynom(const int a0);
 	 ~polynom();
 	 int operator[](const int& x) const;
-	 polynom& operator=(const polynom& p) ;
+	 polynom& operator=(const polynom& p);
 	 polynom& operator+(const polynom& p) const;
 	 polynom& operator-(const polynom& p) const;
 	 polynom& operator*(const polynom& p) const;
+	 ratfunc& operator/(const polynom& p) const;
 	 polynom& Derivative() const;
 	 polynom& Integral() const;
 	 void printcoefs(ostream&) const;

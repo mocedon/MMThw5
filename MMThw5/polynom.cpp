@@ -1,26 +1,20 @@
 #include "polynom.h"
 
-polynom::polynom() : n_(0), coefs_(NULL) {
+polynom::polynom() : n_(0), coefs_(new int[1]) {
+	coefs_[0] = 0;
 }
 
 polynom::polynom(int n, int* coefs) : n_(n), coefs_(new int[n + 1]) {
-	if (coefs == NULL) {
-	 	for (int i = 0; i <= n; i++) {
-			coefs_[i] = 0;
-		}
-	}
-	else {
-		for (int i = 0; i <= n; i++) {
-			coefs_[i] = coefs[i];
-		}
+	for (int i = 0; i <= n; i++) {
+		coefs_[i] = coefs[i];
 	}
 }
 
 polynom::polynom(const polynom& p) : n_(p.n_), coefs_(p.coefs_) {}
 
 
-polynom::polynom(const int n) : n_(1), coefs_(new int) {
-	*coefs_ = n;
+polynom::polynom(const int a0) : n_(0), coefs_(new int[1]) {
+	coefs_[0] = a0;
 }
 
 polynom::~polynom() {
@@ -40,14 +34,12 @@ int polynom::operator[](const int& x) const {
 }
 
 polynom& polynom::operator=(const polynom& p) {
-	n_ = p.n_ ;
-	delete[] coefs_ ;
-	coefs_ = new int[n_+1]  ;
+	n_ = p.n_;
+	delete[] coefs_;
+	coefs_ = new int[n_+1];
 	for (int i = 0; i <= n_; i++) {
-		coefs_[i] = p.coefs_[i] ;
+		coefs_[i] = p.coefs_[i];
 	}
-
-
 }
 
 polynom& polynom::operator+(const polynom& p) const {
@@ -93,12 +85,16 @@ polynom& polynom::operator*(const polynom& p) const {
 	}
 	for (int i = 0; i <= n_; i++) {
 		for (int j = 0; j <= p.n_; j++) {
-			coefs[i + j] = coefs[i + j] coefs_[i] + p.coefs_[j];
+			coefs[i + j] = coefs[i + j] + coefs_[i] + p.coefs_[j];
 		}
 	}
 	polynom result(n, coefs);
 	delete[] coefs;
 	return result;
+}
+
+ratfunc& polynom::operator/(const polynom& p) const {
+	return ratfunc(*this, p);
 }
 
 polynom& polynom::Derivative() const {

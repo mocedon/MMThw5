@@ -1,24 +1,19 @@
 #include "compfunc.h"
 
-template <class F, class G>
-compfunc<F,G>::compfunc() : f_() , g_() {
+compfunc::compfunc() : f_(NULL) , g_(NULL) {
 }
 
-template <class F, class G>
-compfunc<F,G>::compfunc(const F& f, const G& g) : f_(f) , g_(g) {
+compfunc::compfunc(const func& f, const func& g) : f_(&f) , g_(&g) {
 }
 
-template <class F, class G>
-compfunc<F, G>::~compfunc() {
+compfunc::~compfunc() {
 }
 
-template <class F, class G>
-int compfunc<F, G>::operator[](const int& x) const {
-	int tmp = g_[x] ;
-	return f_[tmp] ;
+int compfunc::operator[](const int& x) const {
+	int tmp = *g_[x];
+	return *f_[tmp];
 }
 
-template <class F, class G>
-void compfunc<F, G>::print(ostream& os) {
-	os << endl ;
+void compfunc::print(ostream& os) {
+	os << endl;
 }

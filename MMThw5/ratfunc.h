@@ -8,22 +8,22 @@ using namespace std ;
 
 class ratfunc : public func {
 public:
-	ratfunc() ;
-	ratfunc(const polynom& n, const polynom& d = 1) ;
-	~ratfunc() ;
-
-	int operator[](const int& x) const ;
-	ratfunc& Derivative() const ;
-
-	ratfunc& operator=(const ratfunc& r) ;
-	ratfunc& operator+(const ratfunc& b) const ;
-	ratfunc& operator*(const ratfunc& b) const ;
-	ratfunc& operator/(const ratfunc& b) const ;
-
+	ratfunc();
+	ratfunc(const polynom& p);
+	ratfunc(const polynom& n, const polynom& d);
+	ratfunc(const ratfunc& r);
+	~ratfunc();
+	int operator[](const int& x) const;
+	ratfunc& Derivative() const;
+	ratfunc& operator=(const ratfunc& r);
+	ratfunc& operator+(const ratfunc& r) const;
+	ratfunc& operator-(const ratfunc& r) const;
+	ratfunc& operator*(const ratfunc& r) const;
+	ratfunc& operator/(const ratfunc& r) const;
 protected:
-	polynom N_ ;
-	polynom D_ ;
-	void print(ostream& os) const ;
+	polynom N_;
+	polynom D_;
+	void print(ostream& os) const;
 
 };
 

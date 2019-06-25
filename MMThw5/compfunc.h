@@ -7,18 +7,15 @@
 
 using namespace std ;
 
-template <class F, class G>
 class compfunc : public func {
 public:
-	compfunc() ;
-	compfunc(const F& f , const G& g) ;
-	~compfunc() ;
-
-	int operator[](const int& x) const ;
-
+	compfunc();
+	compfunc(const func& f, const func& g);
+	~compfunc();
+	int operator[](const int& x) const;
 protected:
-	F f_ ;
-	G g_ ;
+	func* f_;
+	func* g_;
 	void print(ostream& os);
 
 };

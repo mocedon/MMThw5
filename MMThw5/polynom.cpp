@@ -42,7 +42,7 @@ polynom& polynom::operator=(const polynom& p) {
 	}
 }
 
-polynom& polynom::operator+(const polynom& p) const {
+polynom polynom::operator+(const polynom& p) const {
 	int n = p.n_;
 	if (n_ > n)
 	{
@@ -66,7 +66,7 @@ polynom& polynom::operator+(const polynom& p) const {
 	return result;
 }
 
-polynom& polynom::operator-(const polynom& p) const {
+polynom polynom::operator-(const polynom& p) const {
 	int n = p.n_;
 	int* coefs = new int[n + 1];
 	for (int i = 0; i < p.n_; i++) {
@@ -77,7 +77,7 @@ polynom& polynom::operator-(const polynom& p) const {
 	return (*this + q);
 }
 
-polynom& polynom::operator*(const polynom& p) const {
+polynom polynom::operator*(const polynom& p) const {
 	int n = n_ + p.n_;
 	int* coefs = new int[n + 1];
 	for (int i = 0; i <= n; i++) {
@@ -93,7 +93,7 @@ polynom& polynom::operator*(const polynom& p) const {
 	return result;
 }
 
-polynom& polynom::Derivative() const {
+polynom polynom::Derivative() const {
 	int n = n_ - 1;
 	int* coefs = new int[n + 1];
 	for (int i = 0; i <= n; i++)
@@ -105,7 +105,7 @@ polynom& polynom::Derivative() const {
 	return result;
 }
 
-polynom& polynom::Integral() const {
+polynom polynom::Integral() const {
 	int n = n_ + 1;
 	int* coefs = new int[n + 1];
 	coefs[0] = 0;

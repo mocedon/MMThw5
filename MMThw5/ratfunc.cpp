@@ -23,7 +23,7 @@ int ratfunc::operator[](const int& x) const {
 	return (n / d);
 }
 
-ratfunc& ratfunc::Derivative() const {
+ratfunc ratfunc::Derivative() const {
 	polynom Ntor = N_.Derivative() * D_ - N_ * D_.Derivative();
 	polynom Dtor = D_ * D_;
 	ratfunc result(Ntor, Dtor);
@@ -35,28 +35,28 @@ ratfunc& ratfunc::operator=(const ratfunc& r) {
 	D_ = r.D_;
 }
 
-ratfunc& ratfunc::operator+(const ratfunc& r) const {
+ratfunc ratfunc::operator+(const ratfunc& r) const {
 	polynom Ntor = N_ * r.D_ + r.N_ * D_;
 	polynom Dtor = D_ * r.D_;
 	ratfunc result(Ntor, Dtor);
 	return result;
 }
 
-ratfunc& ratfunc::operator-(const ratfunc& r) const {
+ratfunc ratfunc::operator-(const ratfunc& r) const {
 	polynom Ntor = N_ * r.D_ - r.N_ * D_;
 	polynom Dtor = D_ * r.D_;
 	ratfunc result(Ntor, Dtor);
 	return result;
 }
 
-ratfunc& ratfunc::operator*(const ratfunc& r) const {
+ratfunc ratfunc::operator*(const ratfunc& r) const {
 	polynom Ntor = N_ * r.N_;
 	polynom Dtor = D_ * r.D_;
 	ratfunc result(Ntor, Dtor);
 	return result;
 }
 
-ratfunc& ratfunc::operator/(const ratfunc& r) const {
+ratfunc ratfunc::operator/(const ratfunc& r) const {
 	polynom Ntor = N_ * r.D_;
 	polynom Dtor = D_ * r.N_;
 	ratfunc result(Ntor, Dtor);

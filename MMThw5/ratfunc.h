@@ -14,12 +14,12 @@ public:
 	ratfunc(const ratfunc& r);
 	~ratfunc();
 	int operator[](const int& x) const;
-	ratfunc& Derivative() const;
+	ratfunc Derivative() const;
 	ratfunc& operator=(const ratfunc& r);
-	ratfunc& operator+(const ratfunc& r) const;
-	ratfunc& operator-(const ratfunc& r) const;
-	ratfunc& operator*(const ratfunc& r) const;
-	ratfunc& operator/(const ratfunc& r) const;
+	ratfunc operator+(const ratfunc& r) const;
+	ratfunc operator-(const ratfunc& r) const;
+	ratfunc operator*(const ratfunc& r) const;
+	ratfunc operator/(const ratfunc& r) const;
 protected:
 	polynom N_;
 	polynom D_;

@@ -23,12 +23,10 @@ polynom::~polynom() {
 
 int polynom::operator[](const int& x) const {
 	int sum = 0;
+	int e = 1;
 	for (int i = 0; i <= n_; i++) {
-		int e = coefs_[i];
-		for (int j = 0; j < i; j++) {
-			e *= x;
-		}
-		sum += e;
+		sum += e*coefs_[i];
+		e *= x;
 	}
 	return sum;
 }

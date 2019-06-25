@@ -14,6 +14,6 @@ int compfunc::operator[](const int& x) const {
 	return (*f_)[tmp];
 }
 
-void compfunc::print(ostream& os) {
+void compfunc::print(ostream& os) const {
 	os << endl;
 }

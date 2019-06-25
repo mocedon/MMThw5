@@ -13,6 +13,7 @@ using std::endl;
 class func {
 public:
 	func();
+	virtual ~func();
 	virtual int operator[](const int& x) const = 0; //calculates f(x)
 	func& operator<<(const int& x); //adds (x,f(x)) to fmap_
 	friend ostream& operator<<(ostream& os, const func& f);

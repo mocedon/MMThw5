@@ -16,7 +16,7 @@ public:
 protected:
 	func* f_;
 	func* g_;
-	void print(ostream& os);
+	void print(ostream& os) const;
 
 };
 

@@ -24,7 +24,6 @@ protected:
 	polynom N_;
 	polynom D_;
 	void print(ostream& os) const;
-
 };
 
 #endif

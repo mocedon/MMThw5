@@ -2,6 +2,8 @@
 
 func::func() : maxVal_(0), minVal_(1) {}
 
+func::~func() {}
+
 func& func::operator<<(const int& x) {
 	int y = (*this)[x];
 	if (maxVal_ < minVal_)

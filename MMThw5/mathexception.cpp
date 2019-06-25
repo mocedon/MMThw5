@@ -1,7 +1,7 @@
 #include "mathexception.h"
 
-mathexception::mathexception(const char* warning) :  warning_(new char[strlen(warning)+1]) {
-	strcpy(warning_, warning);
+mathexception::mathexception(const char* expt) :  warning_(new char[strlen(expt)+1]) {
+	strcpy(warning_, expt);
 }
 
 mathexception::~mathexception() {

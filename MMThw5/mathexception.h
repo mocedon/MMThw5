@@ -6,13 +6,13 @@
 #endif
 
 #include <stdexcept>
-#include <string>
+#include <cstring>
 
-using namespace std;
+using std::exception;
 
 class mathexception : public exception {
 public:
-	mathexception(const char* warning);
+	mathexception(const char* expt);
 	~mathexception();
 	const char* what() const throw();
 protected:

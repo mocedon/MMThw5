@@ -185,7 +185,7 @@ void polynom::print(ostream& os) const {
 }
 
 void polynom::fix() {
-	while (coefs_[n_] == 0) {
+	while (coefs_[n_] == 0 && n_ > 0) {
 		n_--;
 	}
 }

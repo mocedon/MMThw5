@@ -23,7 +23,9 @@ int ratfunc::operator[](const int& x) const {
 }
 
 ratfunc ratfunc::Derivative() const {
-	polynom Ntor = (N_.Derivative() * D_) - (N_ * D_.Derivative());
+	polynom dN = N_.Derivative();
+	polynom dD = D_.Derivative();
+	polynom Ntor = (dN * D_) - (N_ * dD);
 	polynom Dtor = D_ * D_;
 	ratfunc result(Dtor, Ntor);
 	return result;
@@ -74,6 +76,6 @@ void ratfunc::printRF(ostream& os) const {
 void ratfunc::print(ostream& os) const {
 	printRF(os);
 	ratfunc d = Derivative();
-	os << "Derivative: " ;
+	os << "Derivative: ";
 	d.printRF(os);
 }

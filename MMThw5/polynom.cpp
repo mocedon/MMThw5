@@ -64,18 +64,33 @@ polynom polynom::operator+(const polynom& p) const {
 	}
 	polynom result(n, coefs);
 	delete[] coefs;
+	result.fix();
 	return result;
 }
 
 polynom polynom::operator-(const polynom& p) const {
 	int n = p.n_;
-	int* coefs = new int[n + 1];
-	for (int i = 0; i < p.n_; i++) {
-		coefs[i] = -p.coefs_[i];
+	if (n_ > n)
+	{
+		n = n_;
 	}
-	polynom q(n, coefs);
+	int* coefs = new int[n + 1];
+	for (int i = 0; i <= n; i++)
+	{
+		if (i <= n_ && i <= p.n_) {
+			coefs[i] = coefs_[i] - p.coefs_[i];
+		}
+		else if (i > n_) {
+			coefs[i] = p.coefs_[i];
+		}
+		else {
+			coefs[i] = coefs_[i];
+		}
+	}
+	polynom result(n, coefs);
 	delete[] coefs;
-	return (*this + q);
+	result.fix();
+	return result;
 }
 
 polynom polynom::operator*(const polynom& p) const {
@@ -86,7 +101,7 @@ polynom polynom::operator*(const polynom& p) const {
 	}
 	for (int i = 0; i <= n_; i++) {
 		for (int j = 0; j <= p.n_; j++) {
-			coefs[i + j] = coefs[i + j] + coefs_[i] + p.coefs_[j];
+			coefs[i + j] = coefs[i + j] + (coefs_[i] * p.coefs_[j]);
 		}
 	}
 	polynom result(n, coefs);
@@ -167,4 +182,10 @@ void polynom::print(ostream& os) const {
 	polynom i = Integral();
 	i.printcoefs(os);
 	os << "+Constant" << endl;
+}
+
+void polynom::fix() {
+	while (coefs_[n_] == 0) {
+		n_--;
+	}
 }

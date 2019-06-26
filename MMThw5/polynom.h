@@ -21,9 +21,10 @@ class polynom : public func {
 	 polynom Integral() const;
 	 void printcoefs(ostream&) const;
 protected:
-  int n_; //order of the polynom
-  int* coefs_; //coefficients
-  void print(ostream& os) const;
+	int n_; //order of the polynom
+	int* coefs_; //coefficients
+	void print(ostream& os) const;
+	void fix();
 };
 
 #endif

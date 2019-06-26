@@ -24,7 +24,9 @@ func& func::operator<<(const int& x) {
 
 ostream& operator<<(ostream& os, const func& f) {
 	f.print(os);
-	f.plot(os);
+	if (f.maxVal_ >= f.minVal_) {
+		f.plot(os);
+	}
 	return os;
 }
 
